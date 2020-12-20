@@ -1,0 +1,27 @@
+﻿@using System.Web.Optimization;
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+
+
+</head>
+<body ng-app="myWeatherApp">
+    <div class="container-fluid">
+        <div ng-view></div>
+    </div>
+</body>
+</html>

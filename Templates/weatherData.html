@@ -1,0 +1,133 @@
+﻿<main class="main-container" ng-init="onLoad()">
+    <div class="row">
+        
+        <div class="form-group">
+            <label> Enter US ZIP Code: </label>
+            <div class="input-group mb-3">
+                <input type="number" ng-model="zipCode" class="form-control" placeholder="Enter ZIP Code">
+                <div class="input-group-append">
+                    <button ng-click="onSearchClick()" class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="location-and-date">
+        <h1 class="location-and-date__location">{{weatherData.cityName}}, {{weatherData.countryCode}}</h1>
+        <div>{{weatherData.todayDateTime}}</div>
+    </div>
+
+
+    <div class="current-temperature">
+        <div class="current-temperature__icon-container">
+            <img src={{weatherData.weatherConditionIcon}} class="current-temperature__icon" title={{weatherData.weatherCondition}} alt={{weatherData.weatherCondition}}>
+        </div>
+        <div class="current-temperature__content-container">
+            <div class="current-temperature__value">{{weatherData.currentTemp}}&deg;</div>
+            <div class="current-temperature__summary">{{weatherData.weatherCondition}}</div>
+        </div>
+    </div>
+
+
+    <div class="current-stats">
+        <div>
+            <div class="current-stats__value">{{weatherData.maxTemp}}&deg;</div>
+            <div class="current-stats__label">High</div>
+            <div class="current-stats__value">{{weatherData.minTemp}}&deg;</div>
+            <div class="current-stats__label">Low</div>
+        </div>
+        <div>
+            <div class="current-stats__value">{{weatherData.windSpeed}}mph</div>
+            <div class="current-stats__label">Wind</div>
+            <div class="current-stats__value">{{weatherData.precip}}%</div>
+            <div class="current-stats__label">Rain</div>
+        </div>
+        <div>
+            <div class="current-stats__value">{{weatherData.uv}}</div>
+            <div class="current-stats__label">UV Index</div>
+            <div class="current-stats__value">{{weatherData.windDir}}</div>
+            <div class="current-stats__label">Wind Direction</div>
+        </div>
+    </div>
+
+    <!--<div class="weather-by-hour">
+        <h2 class="weather-by-hour__heading">Today's weather</h2>
+        <div class="weather-by-hour__container">
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">3am</div>
+                <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                <div>14&deg;</div>
+            </div>
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">6am</div>
+                <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                <div>16&deg;</div>
+            </div>
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">9am</div>
+                <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                <div>17&deg;</div>
+            </div>
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">12pm</div>
+                <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                <div>19&deg;</div>
+            </div>
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">3pm</div>
+                <img src="icons/sunny.svg" alt="Sunny">
+                <div>21&deg;</div>
+            </div>
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">6pm</div>
+                <img src="icons/sunny.svg" alt="Sunny">
+                <div>20&deg;</div>
+            </div>
+            <div class="weather-by-hour__item">
+                <div class="weather-by-hour__hour">9pm</div>
+                <img src="icons/mostly-sunny.svg" alt="Mostly sunny">
+                <div>18&deg;</div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="next-5-days">
+        <h2 class="next-5-days__heading">Next 7 days</h2>
+        <div class="next-5-days__container">
+
+            <div class="next-5-days__row" ng-repeat="dayDetail in weatherData.forcastDays">
+
+                <div class="next-5-days__date">
+                    {{dayDetail.day}}
+                    <div class="next-5-days__label">{{dayDetail.date}}</div>
+                </div>
+
+                <div class="next-5-days__low">
+                    {{dayDetail.minTemp}}&deg;
+                    <div class="next-5-days__label">Low</div>
+                </div>
+
+                <div class="next-5-days__high">
+                    {{dayDetail.maxTemp}}&deg;
+                    <div class="next-5-days__label">High</div>
+                </div>
+
+                <div class="next-5-days__icon">
+                    <img src={{dayDetail.weatherConditionIcon}}  height="60" width="60" title={{weatherData.weatherCondition}} alt={{weatherData.weatherCondition}}>
+                </div>
+
+                <div class="next-5-days__rain">
+                    {{dayDetail.precip}}%
+                    <div class="next-5-days__label">Rain</div>
+                </div>
+
+                <div class="next-5-days__wind">
+                    {{dayDetail.windSpeed}}mph
+                    <div class="next-5-days__label">Wind</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
